@@ -1,22 +1,22 @@
-// https://observablehq.com/@d3/bar-chart-race@3058
+// https://observablehq.com/@mbostock/bar-chart-race-with-scrubber@3091
+import define1 from "./450051d7f1174df8@254.js";
+
 function _1(md){return(
-md`# Bar Chart Race
+md`# Bar Chart Race with Scrubber
 
-This chart animates the value (in $M) of the top global brands from 2000 to 2019. Color indicates sector. See [the explainer](/d/e9e3929cf7c50b45) for more. Data: [Interbrand](https://www.interbrand.com/best-brands/)`
+This chart animates the value (in $M) of the top global brands from 2000 to 2019. Color indicates sector. See [the explainer](/d/e9e3929cf7c50b45) for more. This fork uses a [scrubber](/@mbostock/scrubber) for interactive control. Data: [Interbrand](https://www.interbrand.com/best-brands/)`
 )}
 
-function _data(FileAttachment){return(
-FileAttachment("category-brands.csv").csv({typed: true})
+function _keyframe(Scrubber,keyframes,formatDate,duration){return(
+Scrubber(keyframes, {
+  format: ([date]) => formatDate(date),
+  delay: duration,
+  loop: false
+})
 )}
 
-function _replay(html){return(
-html`<button>Replay`
-)}
-
-async function* _chart(replay,d3,width,height,bars,axis,labels,ticker,keyframes,duration,x,invalidation)
+function _chart(d3,width,height,bars,axis,labels,ticker,invalidation,duration,x)
 {
-  replay;
-
   const svg = d3.create("svg")
       .attr("viewBox", [0, 0, width, height]);
 
@@ -25,26 +25,33 @@ async function* _chart(replay,d3,width,height,bars,axis,labels,ticker,keyframes,
   const updateLabels = labels(svg);
   const updateTicker = ticker(svg);
 
-  yield svg.node();
+  invalidation.then(() => svg.interrupt());
 
-  for (const keyframe of keyframes) {
-    const transition = svg.transition()
-        .duration(duration)
-        .ease(d3.easeLinear);
+  return Object.assign(svg.node(), {
+    update(keyframe) {
+      const transition = svg.transition()
+          .duration(duration)
+          .ease(d3.easeLinear);
 
-    // Extract the top bar’s value.
-    x.domain([0, keyframe[1][0].value]);
+      // Extract the top bar’s value.
+      x.domain([0, keyframe[1][0].value]);
 
-    updateAxis(keyframe, transition);
-    updateBars(keyframe, transition);
-    updateLabels(keyframe, transition);
-    updateTicker(keyframe, transition);
-
-    invalidation.then(() => svg.interrupt());
-    await transition.end();
-  }
+      updateAxis(keyframe, transition);
+      updateBars(keyframe, transition);
+      updateLabels(keyframe, transition);
+      updateTicker(keyframe, transition);
+    }
+  });
 }
 
+
+function _update(chart,keyframe){return(
+chart.update(keyframe)
+)}
+
+function _data(FileAttachment){return(
+FileAttachment("category-brands.csv").csv({typed: true})
+)}
 
 function _duration(){return(
 250
@@ -95,19 +102,7 @@ function _keyframes(d3,datevalues,k,rank)
 }
 
 
-function _nameframes(d3,keyframes){return(
-d3.groups(keyframes.flatMap(([, data]) => data), d => d.name)
-)}
-
-function _prev(nameframes,d3){return(
-new Map(nameframes.flatMap(([, data]) => d3.pairs(data, (a, b) => [b, a])))
-)}
-
-function _next(nameframes,d3){return(
-new Map(nameframes.flatMap(([, data]) => d3.pairs(data)))
-)}
-
-function _bars(n,color,y,x,prev,next){return(
+function _bars(n,color,y,x){return(
 function bars(svg) {
   let bar = svg.append("g")
       .attr("fill-opacity", 0.6)
@@ -120,12 +115,12 @@ function bars(svg) {
         .attr("fill", color)
         .attr("height", y.bandwidth())
         .attr("x", x(0))
-        .attr("y", d => y((prev.get(d) || d).rank))
-        .attr("width", d => x((prev.get(d) || d).value) - x(0)),
+        .attr("y", y(n))
+        .attr("width", d => x(d.value) - x(0)),
       update => update,
       exit => exit.transition(transition).remove()
-        .attr("y", d => y((next.get(d) || d).rank))
-        .attr("width", d => x((next.get(d) || d).value) - x(0))
+        .attr("y", y(n))
+        .attr("width", d => x(d.value) - x(0))
     )
     .call(bar => bar.transition(transition)
       .attr("y", d => y(d.rank))
@@ -133,7 +128,7 @@ function bars(svg) {
 }
 )}
 
-function _labels(n,x,prev,y,next,textTween){return(
+function _labels(n,x,y,textTween,parseNumber){return(
 function labels(svg) {
   let label = svg.append("g")
       .style("font", "bold 12px var(--sans-serif)")
@@ -145,7 +140,7 @@ function labels(svg) {
     .data(data.slice(0, n), d => d.name)
     .join(
       enter => enter.append("text")
-        .attr("transform", d => `translate(${x((prev.get(d) || d).value)},${y((prev.get(d) || d).rank)})`)
+        .attr("transform", d => `translate(${x(d.value)},${y(n)})`)
         .attr("y", y.bandwidth() / 2)
         .attr("x", -6)
         .attr("dy", "-0.25em")
@@ -157,12 +152,13 @@ function labels(svg) {
           .attr("dy", "1.15em")),
       update => update,
       exit => exit.transition(transition).remove()
-        .attr("transform", d => `translate(${x((next.get(d) || d).value)},${y((next.get(d) || d).rank)})`)
-        .call(g => g.select("tspan").tween("text", d => textTween(d.value, (next.get(d) || d).value)))
+        .attr("transform", d => `translate(${x(d.value)},${y(n)})`)
     )
     .call(bar => bar.transition(transition)
       .attr("transform", d => `translate(${x(d.value)},${y(d.rank)})`)
-      .call(g => g.select("tspan").tween("text", d => textTween((prev.get(d) || d).value, d.value))));
+      .call(g => g.select("tspan").tween("text", function(d) {
+          return textTween(parseNumber(this.textContent), d.value);
+        })));
 }
 )}
 
@@ -175,21 +171,21 @@ function textTween(a, b) {
 }
 )}
 
+function _parseNumber(){return(
+string => +string.replace(/,/g, "")
+)}
+
 function _formatNumber(d3){return(
 d3.format(",d")
 )}
 
-function _tickFormat(){return(
-undefined
-)}
-
-function _axis(margin,d3,x,width,tickFormat,barSize,n,y){return(
+function _axis(margin,d3,x,width,barSize,n,y){return(
 function axis(svg) {
   const g = svg.append("g")
       .attr("transform", `translate(0,${margin.top})`);
 
   const axis = d3.axisTop(x)
-      .ticks(width / 160, tickFormat)
+      .ticks(width / 160)
       .tickSizeOuter(0)
       .tickSizeInner(-barSize * (n + y.padding()));
 
@@ -270,10 +266,11 @@ export default function define(runtime, observer) {
   ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
   main.variable(observer()).define(["md"], _1);
+  main.variable(observer("viewof keyframe")).define("viewof keyframe", ["Scrubber","keyframes","formatDate","duration"], _keyframe);
+  main.variable(observer("keyframe")).define("keyframe", ["Generators", "viewof keyframe"], (G, _) => G.input(_));
+  main.variable(observer("chart")).define("chart", ["d3","width","height","bars","axis","labels","ticker","invalidation","duration","x"], _chart);
+  main.variable(observer("update")).define("update", ["chart","keyframe"], _update);
   main.variable(observer("data")).define("data", ["FileAttachment"], _data);
-  main.variable(observer("viewof replay")).define("viewof replay", ["html"], _replay);
-  main.variable(observer("replay")).define("replay", ["Generators", "viewof replay"], (G, _) => G.input(_));
-  main.variable(observer("chart")).define("chart", ["replay","d3","width","height","bars","axis","labels","ticker","keyframes","duration","x","invalidation"], _chart);
   main.variable(observer("duration")).define("duration", _duration);
   main.variable(observer("n")).define("n", _n);
   main.variable(observer("names")).define("names", ["data"], _names);
@@ -281,15 +278,12 @@ export default function define(runtime, observer) {
   main.variable(observer("rank")).define("rank", ["names","d3","n"], _rank);
   main.variable(observer("k")).define("k", _k);
   main.variable(observer("keyframes")).define("keyframes", ["d3","datevalues","k","rank"], _keyframes);
-  main.variable(observer("nameframes")).define("nameframes", ["d3","keyframes"], _nameframes);
-  main.variable(observer("prev")).define("prev", ["nameframes","d3"], _prev);
-  main.variable(observer("next")).define("next", ["nameframes","d3"], _next);
-  main.variable(observer("bars")).define("bars", ["n","color","y","x","prev","next"], _bars);
-  main.variable(observer("labels")).define("labels", ["n","x","prev","y","next","textTween"], _labels);
+  main.variable(observer("bars")).define("bars", ["n","color","y","x"], _bars);
+  main.variable(observer("labels")).define("labels", ["n","x","y","textTween","parseNumber"], _labels);
   main.variable(observer("textTween")).define("textTween", ["d3","formatNumber"], _textTween);
+  main.variable(observer("parseNumber")).define("parseNumber", _parseNumber);
   main.variable(observer("formatNumber")).define("formatNumber", ["d3"], _formatNumber);
-  main.variable(observer("tickFormat")).define("tickFormat", _tickFormat);
-  main.variable(observer("axis")).define("axis", ["margin","d3","x","width","tickFormat","barSize","n","y"], _axis);
+  main.variable(observer("axis")).define("axis", ["margin","d3","x","width","barSize","n","y"], _axis);
   main.variable(observer("ticker")).define("ticker", ["barSize","width","margin","n","formatDate","keyframes"], _ticker);
   main.variable(observer("formatDate")).define("formatDate", ["d3"], _formatDate);
   main.variable(observer("color")).define("color", ["d3","data"], _color);
@@ -299,5 +293,7 @@ export default function define(runtime, observer) {
   main.variable(observer("barSize")).define("barSize", _barSize);
   main.variable(observer("margin")).define("margin", _margin);
   main.variable(observer("d3")).define("d3", ["require"], _d3);
+  const child1 = runtime.module(define1);
+  main.import("Scrubber", child1);
   return main;
 }
