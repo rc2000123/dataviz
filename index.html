@@ -25,7 +25,7 @@
           <a
             class="navbar-brand"
             href="#"
-            style="left: 10%; position: relative; top: 23%"
+            style="left: 4%; position: relative; top: 23%"
             >Analysis of IMDB Movie Genres from 1990-2022</a
           >
           <li class="nav-item active">
@@ -64,30 +64,63 @@
       <h3 style="left: 2%; position: absolute; top: 40%">this is .......</h3> -->
 
       <!-- heiarchical字會擋到 -->
-        <br>
+      <br />
 
-      <h2 style="left: 2%; position: relative">An Analysis of IMDB Movie Genres from 1990-2022</h2>
-      <h5 style="left: 2%; position: relative">Analyzing Modern Movie Datasets have always been a benchmark of data analysis and visualization. This websites demonstrate 3 graphs, highlighting different aspects of the raw data through graph engines powered by d3js.</h5>
-      <h6 style="left: 2%; position: relative; color: gray">DataVis Group 2 NCCU June, 2022</h6>
-      <br>
-      <br>
-      <h2 style="left: 2%; position: relative">Genre Heiarchical Graph Chart</h2>
-      <h5 style="left: 2%; position: relative">This is a heiarchical graph chart depicting the aggregated revenue of every genre. Drilling Down allows the user to sort by every half decade, giving the user a more holistic understanding of the trend and popularity of every genre, and finally every movie, as well as its profit and budget.</h5>
+      <h2 style="left: 2%; position: relative">
+        An Analysis of IMDB Movie Genres from 1990-2022
+      </h2>
+      <h5 style="left: 2%; position: relative">
+        Analyzing Modern Movie Datasets have always been a benchmark of data
+        analysis and visualization. This websites demonstrate 3 graphs,
+        highlighting different aspects of the raw data through graph engines
+        powered by d3js.
+      </h5>
+      <h6 style="left: 2%; position: relative; color: gray">
+        DataVis Group 11 NCCU June, 2022
+      </h6>
+      <br />
+      <br />
+      <h2 style="left: 2%; position: relative">
+        Genre Heiarchical Graph Chart
+      </h2>
+      <h5 style="left: 2%; position: relative">
+        This is a heiarchical graph chart depicting the aggregated revenue of
+        every genre. Drilling Down allows the user to sort by every half decade,
+        giving the user a more holistic understanding of the trend and
+        popularity of every genre, and finally every movie, as well as its
+        profit and budget.
+      </h5>
     </div>
-    <br>
+    <br />
 
     <div id="barrace" style="left: 2%; position: relative">
-      <h5 >By using a bar chart race with scrubber to visualize the growth of every genre, the user is able to dynamically pin point the ranking changes as well as relative size in real time.</h5>
+      <h5>
+        By using a bar chart race with scrubber to visualize the growth of every
+        genre, the user is able to dynamically pin point the ranking changes as
+        well as relative size in real time.
+      </h5>
       <h2>Genre Bar Chart Race</h2>
     </div>
 
-    <h5 style="left: 60%; position: absolute; top: 190%">As we can see, drama has been the major revenue generator for movies in the early 1990's to early 2000's, but is soon surpassed by Action and Adventure Movies in the latter half, probably due to the heavy influx of Marvel BlockBusters</h5>
+    <h5 style="left: 2%; position: relative">
+      As we can see, drama has been the major revenue generator for movies in
+      the early 1990's to early 2000's, but is soon surpassed by Action and
+      Adventure Movies in the latter half, probably due to the heavy influx of
+      Marvel BlockBusters
+    </h5>
 
-    <div id="scatter" class="scatter" style="left: 2%; position: relative;">
-      <h2 style = "left: 70%;position: relative;">Rating/Revenue/Popularity Scatterplot</h2>
-      <h5 style="left: 70%;position: absolute; top: 20%">To be able to demonstrate 3 different variables (dimensions) on a 2d plane, a scatterplot is used with varying node sizes to depict the popularity accross an x/y (Revenue/Rating) plane. Selecting items in the legends allows the user to highlight different genres. In General, high rating movies have higher popularity, although with generally weak correlations, especially on less popular genres such as History and War.</h5>
-
-      
+    <div id="scatter" class="scatter" style="left: 2%; position: relative">
+      <h2 style="left: 65%; position: relative">
+        Rating/Revenue/Popularity Scatterplot
+      </h2>
+      <h5 style="left: 65%; position: absolute; top: 20%">
+        To be able to demonstrate 3 different variables (dimensions) on a 2d
+        plane, a scatterplot is used with varying node sizes to depict the
+        popularity accross an x/y (Revenue/Rating) plane. Selecting items in the
+        legends allows the user to highlight different genres. In General, high
+        rating movies have higher popularity, although with generally weak
+        correlations, especially on less popular genres such as History and War.
+      </h5>
     </div>
     <script type="module">
       import define from "./index.js";
@@ -112,11 +145,14 @@
     <!-- <div id="scatter" class="scatter"></div> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.6.7/d3-tip.js"></script>
-    <div  style="left: 2%; position: relative;">
-    <button style="left: 2%; position: relative;" class="reset">Reset Zoom</button>
-    <button style="left: 2%; position: relative;" class="resetcat">Reset Category</button>
-
-  </div>
+    <div style="left: 2%; position: relative">
+      <button style="left: 2%; position: relative" class="reset">
+        Reset Zoom
+      </button>
+      <button style="left: 2%; position: relative" class="resetcat">
+        Reset Category
+      </button>
+    </div>
 
     <script src="scatter.js" charset="utf-8"></script>
   </body>
