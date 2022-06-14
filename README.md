@@ -1,6 +1,6 @@
-# Bar Chart Race with Scrubber
+# Hierarchical Bar Chart
 
-https://observablehq.com/@mbostock/bar-chart-race-with-scrubber@3091
+https://observablehq.com/@d3/hierarchical-bar-chart@330
 
 View this notebook in your browser by running a web server in this folder. For
 example:
@@ -14,14 +14,14 @@ import this module directly into your application. To npm install:
 
 ~~~sh
 npm install @observablehq/runtime@4
-npm install https://api.observablehq.com/@mbostock/bar-chart-race-with-scrubber@3091.tgz?v=3
+npm install https://api.observablehq.com/@d3/hierarchical-bar-chart@330.tgz?v=3
 ~~~
 
 Then, import your notebook and the runtime as:
 
 ~~~js
 import {Runtime, Inspector} from "@observablehq/runtime";
-import define from "@mbostock/bar-chart-race-with-scrubber";
+import define from "@d3/hierarchical-bar-chart";
 ~~~
 
 To log the value of the cell named “foo”:

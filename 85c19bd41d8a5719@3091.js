@@ -258,11 +258,11 @@ function _d3(require){return(
 require("d3@6")
 )}
 
-export default function define(runtime, observer) {
+export default function race_define(runtime, observer) {
   const main = runtime.module();
   function toString() { return this.url; }
   const fileAttachments = new Map([
-    ["category-brands.csv", {url: new URL("./files/genre_csv.csv", import.meta.url), mimeType: "text/csv", toString}]
+    ["category-brands.csv", {url: new URL("./race_files/genre_csv.csv", import.meta.url), mimeType: "text/csv", toString}]
   ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
   //main.variable(observer()).define(["md"], _1);

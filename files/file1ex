@@ -1,0 +1,439 @@
+{
+ "name": "flare",
+ "children": [
+  {
+   "name": "Action",
+   "children": [
+    {
+     "name": "1990 - 1995",
+     "children": [
+    {
+       "name":"MovieName1",
+       "children":[
+           {"name": "Budget", "value": 3934},
+           {"name": "Profit", "value": 501}
+       ]
+    },
+    {
+       "name":"MovieName2",
+       "children":[
+           {"name": "Budget", "value": -117},
+           {"name": "Profit", "value": 281}
+       ]
+    }
+     ]
+    },
+    {
+     "name": "1996 - 2000",
+     "children": [
+      {
+       "name":"MovieName1",
+       "children":[
+           {"name": "Budget", "value": 74},
+           {"name": "Profit", "value": 591}
+       ]
+    },
+    {
+       "name":"MovieName2",
+       "children":[
+           {"name": "Budget", "value": 797},
+           {"name": "Profit", "value": 2881}
+       ]
+    }
+     ]
+    },
+    {
+     "name": "2001 - 2005",
+      "children": [
+      {
+       "name":"MovieName1",
+       "children":[
+           {"name": "Budget", "value": 334},
+           {"name": "Profit", "value": 531}
+       ]
+    },
+    {
+       "name":"MovieName2",
+       "children":[
+           {"name": "Budget", "value": 7},
+           {"name": "Profit", "value": 121}
+       ]
+    }
+     ]
+    }
+   ]  
+  },
+  {
+   "name": "Animate",
+   "children": [
+   {
+     "name": "1990 - 1995",
+     "children": [
+    {
+       "name":"MovieName1",
+       "children":[
+           {"name": "Budget", "value": 4},
+           {"name": "Profit", "value": 51}
+       ]
+    },
+    {
+       "name":"MovieName2",
+       "children":[
+           {"name": "Budget", "value": 77},
+           {"name": "Profit", "value": 21}
+       ]
+    }
+     ]
+    },
+    {
+     "name": "1996 - 2000",
+     "children": [
+      {
+       "name":"MovieName1",
+       "children":[
+           {"name": "Budget", "value": 34},
+           {"name": "Profit", "value": 51}
+       ]
+    },
+    {
+       "name":"MovieName2",
+       "children":[
+           {"name": "Budget", "value": 777},
+           {"name": "Profit", "value": 281}
+       ]
+    }
+     ]
+    },
+    {
+     "name": "2001 - 2005",
+      "children": [
+      {
+       "name":"MovieName1",
+       "children":[
+           {"name": "Budget", "value": 354},
+           {"name": "Profit", "value": 531}
+       ]
+    },
+    {
+       "name":"MovieName2",
+       "children":[
+           {"name": "Budget", "value": 77},
+           {"name": "Profit", "value": 11}
+       ]
+    }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Love",
+   "children": [
+   {
+     "name": "1990 - 1995",
+     "children": [
+    {
+       "name":"MovieName1",
+       "children":[
+           {"name": "Budget", "value": 304},
+           {"name": "Profit", "value": 5001}
+       ]
+    },
+    {
+       "name":"MovieName2",
+       "children":[
+           {"name": "Budget", "value": 777},
+           {"name": "Profit", "value": 201}
+       ]
+    }
+     ]
+    },
+    {
+     "name": "1996 - 2000",
+     "children": [
+      {
+       "name":"MovieName1",
+       "children":[
+           {"name": "Budget", "value": 304},
+           {"name": "Profit", "value": 1731}
+       ]
+    },
+    {
+       "name":"MovieName2",
+       "children":[
+           {"name": "Budget", "value": 727},
+           {"name": "Profit", "value": 281}
+       ]
+    }
+     ]
+    },
+    {
+     "name": "2001 - 2005",
+      "children": [
+      {
+       "name":"MovieName1",
+       "children":[
+           {"name": "Budget", "value": 334},
+           {"name": "Profit", "value": 51}
+       ]
+    },
+    {
+       "name":"MovieName2",
+       "children":[
+           {"name": "Budget", "value": 7707},
+           {"name": "Profit", "value": 18801}
+       ]
+    }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Thrill",
+   "children": [
+   {
+     "name": "1990 - 1995",
+     "children": [
+    {
+       "name":"MovieName1",
+       "children":[
+           {"name": "Budget", "value": 39994},
+           {"name": "Profit", "value": 571}
+       ]
+    },
+    {
+       "name":"MovieName2",
+       "children":[
+           {"name": "Budget", "value": 777},
+           {"name": "Profit", "value": 281}
+       ]
+    }
+     ]
+    },
+    {
+     "name": "1996 - 2000",
+     "children": [
+      {
+       "name":"MovieName1",
+       "children":[
+           {"name": "Budget", "value": 334},
+           {"name": "Profit", "value": 31}
+       ]
+    },
+    {
+       "name":"MovieName2",
+       "children":[
+           {"name": "Budget", "value": 77},
+           {"name": "Profit", "value": 81}
+       ]
+    }
+     ]
+    },
+    {
+     "name": "2001 - 2005",
+      "children": [
+      {
+       "name":"MovieName1",
+       "children":[
+           {"name": "Budget", "value": 334},
+           {"name": "Profit", "value": 501}
+       ]
+    },
+    {
+       "name":"MovieName2",
+       "children":[
+           {"name": "Budget", "value": 77},
+           {"name": "Profit", "value": 1801}
+       ]
+    }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Horror",
+   "children": [
+  {
+     "name": "1990 - 1995",
+     "children": [
+    {
+       "name":"MovieName1",
+       "children":[
+           {"name": "Budget", "value": 334},
+           {"name": "Profit", "value": 531}
+       ]
+    },
+    {
+       "name":"MovieName2",
+       "children":[
+           {"name": "Budget", "value": 777},
+           {"name": "Profit", "value": 281}
+       ]
+    }
+     ]
+    },
+    {
+     "name": "1996 - 2000",
+     "children": [
+      {
+       "name":"MovieName1",
+       "children":[
+           {"name": "Budget", "value": 3034},
+           {"name": "Profit", "value": 5031}
+       ]
+    },
+    {
+       "name":"MovieName2",
+       "children":[
+           {"name": "Budget", "value": 79977},
+           {"name": "Profit", "value": 2081}
+       ]
+    }
+     ]
+    },
+    {
+     "name": "2001 - 2005",
+      "children": [
+      {
+       "name":"MovieName1",
+       "children":[
+           {"name": "Budget", "value": 3034},
+           {"name": "Profit", "value": 6731}
+       ]
+    },
+    {
+       "name":"MovieName2",
+       "children":[
+           {"name": "Budget", "value": 7770},
+           {"name": "Profit", "value": 12081}
+       ]
+    }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Adventure",
+   "children": [
+   {
+     "name": "1990 - 1995",
+     "children": [
+    {
+       "name":"MovieName1",
+       "children":[
+           {"name": "Budget", "value": 3504},
+           {"name": "Profit", "value": 11701}
+       ]
+    },
+    {
+       "name":"MovieName2",
+       "children":[
+           {"name": "Budget", "value": 3377},
+           {"name": "Profit", "value": 9981}
+       ]
+    }
+     ]
+    },
+    {
+     "name": "1995 - 2000",
+     "children": [
+      {
+       "name":"MovieName1",
+       "children":[
+           {"name": "Budget", "value": 22234},
+           {"name": "Profit", "value": 111731}
+       ]
+    },
+    {
+       "name":"MovieName2",
+       "children":[
+           {"name": "Budget", "value": 227},
+           {"name": "Profit", "value": 2981}
+       ]
+    }
+     ]
+    },
+    {
+     "name": "2000 - 2005",
+      "children": [
+      {
+       "name":"MovieName1",
+       "children":[
+           {"name": "Budget", "value": 134},
+           {"name": "Profit", "value": 521}
+       ]
+    },
+    {
+       "name":"MovieName2",
+       "children":[
+           {"name": "Budget", "value": 87},
+           {"name": "Profit", "value": 1981}
+       ]
+    }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Family",
+   "children": [
+   {
+     "name": "1990 - 1995",
+     "children": [
+    {
+       "name":"MovieName1",
+       "children":[
+           {"name": "Budget", "value": 1534},
+           {"name": "Profit", "value": 1731}
+       ]
+    },
+    {
+       "name":"MovieName2",
+       "children":[
+           {"name": "Budget", "value": 177},
+           {"name": "Profit", "value": 381}
+       ]
+    }
+     ]
+    },
+    {
+     "name": "1995 - 2000",
+     "children": [
+      {
+       "name":"MovieName1",
+       "children":[
+           {"name": "Budget", "value": 234},
+           {"name": "Profit", "value": 7391}
+       ]
+    },
+    {
+       "name":"MovieName2",
+       "children":[
+           {"name": "Budget", "value": 707},
+           {"name": "Profit", "value": 81}
+       ]
+    }
+     ]
+    },
+    {
+     "name": "2000 - 2005",
+      "children": [
+      {
+       "name":"MovieName1",
+       "children":[
+           {"name": "Budget", "value": 322534},
+           {"name": "Profit", "value": 19731}
+       ]
+    },
+    {
+       "name":"MovieName2",
+       "children":[
+           {"name": "Budget", "value": 7177},
+           {"name": "Profit", "value": 2881}
+       ]
+    }
+     ]
+    }
+   ]
+  }
+ ]
+}

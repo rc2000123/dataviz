@@ -1,11 +1,11 @@
 {
-  "name": "@mbostock/bar-chart-race-with-scrubber",
-  "main": "85c19bd41d8a5719@3091.js",
-  "version": "3091.0.0",
-  "homepage": "https://observablehq.com/@mbostock/bar-chart-race-with-scrubber",
+  "name": "@d3/hierarchical-bar-chart",
+  "main": "0b07c3790ae4af2c@330.js",
+  "version": "330.0.0",
+  "homepage": "https://observablehq.com/@d3/hierarchical-bar-chart",
   "author": {
-    "name": "Mike Bostock",
-    "url": "https://observablehq.com/@mbostock"
+    "name": "D3",
+    "url": "https://observablehq.com/@d3"
   },
   "type": "module",
   "peerDependencies": {
