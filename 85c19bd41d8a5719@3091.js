@@ -1,8 +1,8 @@
 // https://observablehq.com/@mbostock/bar-chart-race-with-scrubber@3091
 import define1 from "./450051d7f1174df8@254.js";
 
-function _1(md){return(
-md`# Bar Chart Race with Scrubber
+function _1111(md){return(
+md`#     Bar Chart Race with Scrubber
 
 This chart animates the value (in $M) of the top global brands from 2000 to 2019. Color indicates sector. See [the explainer](/d/e9e3929cf7c50b45) for more. This fork uses a [scrubber](/@mbostock/scrubber) for interactive control. Data: [Interbrand](https://www.interbrand.com/best-brands/)`
 )}
@@ -265,7 +265,7 @@ export default function race_define(runtime, observer) {
     ["category-brands.csv", {url: new URL("./race_files/genre_csv.csv", import.meta.url), mimeType: "text/csv", toString}]
   ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
-  //main.variable(observer()).define(["md"], _1);
+  //main.variable(observer()).define(["md"], _1111);
   main.variable(observer("viewof keyframe")).define("viewof keyframe", ["Scrubber","keyframes","formatDate","duration"], _keyframe);
   main.variable("keyframe").define("keyframe", ["Generators", "viewof keyframe"], (G, _) => G.input(_));
   main.variable(observer("chart")).define("chart", ["d3","width","height","bars","axis","labels","ticker","invalidation","duration","x"], _chart);
